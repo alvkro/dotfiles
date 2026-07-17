@@ -1,0 +1,78 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 36,
+    "spacing": 0,
+    "margin-top": 8,
+    "margin-left": 120,
+    "margin-right": 120,
+
+    "modules-left": ["hyprland/workspaces", "hyprland/window"],
+    "modules-center": ["clock"],
+    "modules-right": ["tray", "cpu", "memory", "pulseaudio", "network", "battery", "custom/power"],
+
+    "hyprland/workspaces": {
+        "format": "{id}",
+        "on-click": "activate",
+        "all-outputs": true,
+        "persistent-workspaces": {
+            "1": [], "2": [], "3": [], "4": [], "5": []
+        }
+    },
+
+    "hyprland/window": {
+        "format": "{title}",
+        "max-length": 45,
+        "separate-outputs": true
+    },
+
+    "clock": {
+        "interval": 1,
+        "format": "{:%H:%M:%S   %d/%m/%Y}",
+        "tooltip-format": "{:%A, %d de %B}"
+    },
+
+    "cpu": {
+        "format": "\uf2db {usage}%",
+        "interval": 2,
+        "tooltip": true
+    },
+
+    "memory": {
+        "format": "\uf1c0 {percentage}%",
+        "interval": 2,
+        "tooltip-format": "Usado: {used:0.1f}GB / {total:0.1f}GB"
+    },
+
+    "network": {
+        "format-wifi": "\uf1eb {signalStrength}%",
+        "format-ethernet": "\uf1eb",
+        "format-disconnected": "\uf1eb --",
+        "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
+        "on-click": "nm-connection-editor"
+    },
+
+    "pulseaudio": {
+        "format": "\uf028 {volume}%",
+        "format-muted": "\uf026 --",
+        "on-click": "pavucontrol",
+        "scroll-step": 5
+    },
+
+    "battery": {
+        "states": { "warning": 30, "critical": 15 },
+        "format": "\uf240 {capacity}%",
+        "format-charging": "\uf0e7 {capacity}%"
+    },
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 8
+    },
+
+    "custom/power": {
+        "format": "\uf011",
+        "tooltip": false,
+        "on-click": "nwg-bar"
+    }
+}
