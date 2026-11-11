@@ -1,0 +1,103 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 32,
+  "margin-top": 6,
+  "margin-left": 6,
+  "margin-right": 6,
+  "spacing": 4,
+
+  "modules-left": ["hyprland/workspaces", "hyprland/window"],
+  "modules-center": ["clock"],
+  "modules-right": [
+    "mpris",
+    "custom/weather",
+    "cpu",
+    "memory",
+    "network",
+    "wireplumber",
+    "battery",
+    "tray",
+    "custom/power"
+  ],
+
+  "hyprland/workspaces": {
+    "format": "{id}",
+    "on-click": "activate",
+    "persistent-workspaces": {
+      "HDMI-A-1": [1, 2, 3, 4, 5],
+      "eDP-1": [6, 7, 8, 9, 10]
+    }
+  },
+
+  "hyprland/window": {
+    "format": "{title}",
+    "max-length": 40,
+    "separate-outputs": true
+  },
+
+  "clock": {
+    "format": "󰥔  {:%H:%M}",
+    "format-alt": "󰃭  {:%A, %d de %B de %Y}",
+    "tooltip-format": "<tt>{calendar}</tt>"
+  },
+
+  "mpris": {
+    "format": "󰎆  {artist} - {title}",
+    "format-paused": "󰏤  {artist} - {title}",
+    "max-length": 40,
+    "on-click": "playerctl play-pause",
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous"
+  },
+
+  "custom/weather": {
+    "exec": "curl -s 'wttr.in/?format=%c+%t' | tr -d '+'",
+    "interval": 1800,
+    "format": "{}"
+  },
+
+  "cpu": {
+    "format": "󰻠  {usage}%",
+    "interval": 2
+  },
+
+  "memory": {
+    "format": "󰍛  {used:0.1f}G",
+    "interval": 5
+  },
+
+  "network": {
+    "format-wifi": "󰤨  {signalStrength}%",
+    "format-ethernet": "󰈀  cabo",
+    "format-disconnected": "󰤭  off",
+    "tooltip-format": "{essid}  {ipaddr}",
+    "on-click": "kitty nmtui"
+  },
+
+  "wireplumber": {
+    "format": "󰕾  {volume}%",
+    "format-muted": "󰝟  mudo",
+    "on-click": "pavucontrol",
+    "scroll-step": 5
+  },
+
+  "battery": {
+    "states": { "warning": 30, "critical": 15 },
+    "format": "{icon}  {capacity}%",
+    "format-charging": "󰂄  {capacity}%",
+    "format-plugged": "󰚥  {capacity}%",
+    "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+  },
+
+  "tray": {
+    "icon-size": 16,
+    "spacing": 8
+  },
+
+  "custom/power": {
+    "format": "󰐥",
+    "tooltip": false,
+    "on-click": "nwg-bar"
+  }
+}

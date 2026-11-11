@@ -1,0 +1,257 @@
+@define-color bg        rgba(24, 20, 33, 0.95);
+@define-color bg-card   rgba(52, 44, 70, 0.92);
+@define-color bg-hover  rgba(72, 62, 96, 0.95);
+@define-color fg        #ece8f4;
+@define-color fg-dim    #a39aaf;
+@define-color accent    #9d8ab5;
+@define-color accent2   #cdb8ee;
+@define-color urgent    #d4707e;
+
+* {
+  font-family: "Iosevka Nerd Font";
+  font-size: 15px;
+  transition: all 160ms ease;
+}
+
+/* ---------- POPUPS ---------- */
+.notification-row { outline: none; background: transparent; }
+
+.notification-background {
+  background: @bg;
+  border: 2px solid alpha(@accent, 0.7);
+  border-radius: 20px;
+  margin: 8px 12px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.5);
+}
+.notification-background:hover { border-color: @accent2; }
+.notification-background.critical { border-color: @urgent; }
+
+.notification { background: transparent; padding: 0; }
+.notification-content { background: transparent; padding: 16px; }
+.notification-default-action { background: transparent; border-radius: 20px; }
+.notification-default-action:hover { background: alpha(@accent, 0.15); }
+
+.image { margin-right: 14px; border-radius: 14px; }
+.summary { color: @accent2; font-size: 17px; font-weight: bold; }
+.time    { color: @fg-dim; font-size: 13px; }
+.body    { color: @fg; font-size: 15px; }
+.body-image { border-radius: 14px; margin-top: 8px; }
+
+.close-button {
+  background: @bg-card;
+  color: @fg-dim;
+  border: none;
+  border-radius: 999px;
+  min-width: 26px;
+  min-height: 26px;
+  margin: 10px;
+  padding: 0;
+}
+.close-button:hover { background: @urgent; color: #15121c; }
+
+.notification-action {
+  background: @bg-card;
+  color: @fg;
+  border: none;
+  border-radius: 12px;
+  margin: 0 8px 10px 8px;
+  padding: 8px;
+}
+.notification-action:hover { background: @accent; color: #15121c; }
+
+/* ---------- CENTRO DE CONTROLE ---------- */
+.control-center {
+  background: @bg;
+  border: 2px solid alpha(@accent, 0.7);
+  border-radius: 24px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.55);
+}
+.control-center-list { background: transparent; }
+.control-center .notification-background {
+  background: @bg-card;
+  border: 1px solid transparent;
+  margin: 6px 12px;
+  box-shadow: none;
+}
+.control-center .notification-background:hover { border-color: @accent2; }
+
+.widget-title {
+  color: @accent2;
+  font-size: 22px;
+  font-weight: bold;
+  margin: 18px 20px 8px 20px;
+}
+.widget-title > button {
+  background: @bg-card;
+  color: @fg;
+  border: none;
+  border-radius: 14px;
+  padding: 6px 16px;
+  font-size: 14px;
+}
+.widget-title > button label {
+  font-family: "Iosevka Nerd Font Mono";
+  font-size: 16px;
+}
+.widget-title > button:hover { background: @accent; color: #15121c; }
+
+/* ---------- PLAYER ---------- */
+.widget-mpris {
+  background: @bg-card;
+  border-radius: 20px;
+  margin: 8px 16px;
+  padding: 8px;
+}
+.widget-mpris-player,
+.widget-mpris-player > * {
+  background: transparent;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+}
+.widget-mpris-player { padding: 8px; }
+.widget-mpris-album-art {
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
+}
+.widget-mpris-title    { color: @fg; font-size: 17px; font-weight: bold; }
+.widget-mpris-subtitle { color: @fg-dim; font-size: 14px; }
+.widget-mpris button {
+  background: transparent;
+  color: @accent2;
+  border: none;
+  border-radius: 12px;
+  padding: 4px 8px;
+  min-width: 28px;
+}
+.widget-mpris button label,
+.widget-mpris button image {
+  font-family: "Iosevka Nerd Font Mono";
+  font-size: 22px;
+  -gtk-icon-size: 24px;
+}
+.widget-mpris button:hover { background: @bg-hover; }
+.widget-mpris > box > button { color: @fg-dim; }
+.widget-mpris > box > button:hover { color: @accent2; }
+
+/* ---------- SLIDERS ---------- */
+.widget-volume, .widget-backlight {
+  background: @bg-card;
+  border-radius: 18px;
+  margin: 6px 16px;
+  padding: 12px 18px;
+  color: @accent2;
+  font-size: 18px;
+}
+.widget-volume label, .widget-backlight label {
+  font-family: "Iosevka Nerd Font Mono";
+  font-size: 26px;
+  min-width: 36px;
+}
+scale trough {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  min-height: 8px;
+}
+scale highlight {
+  background: linear-gradient(90deg, @accent, @accent2);
+  border-radius: 999px;
+}
+scale slider {
+  background: @fg;
+  border-radius: 999px;
+  min-width: 18px;
+  min-height: 18px;
+  margin: -6px;
+  border: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* ---------- GRADE DE BOTÕES ---------- */
+.widget-buttons-grid {
+  background: transparent;
+  margin: 8px 16px 12px 16px;
+  padding: 0;
+}
+.widget-buttons-grid > flowbox > flowboxchild > button {
+  background: @bg-card;
+  color: @accent2;
+  border: none;
+  border-radius: 18px;
+  min-height: 60px;
+  margin: 4px;
+  padding: 0;
+  font-size: 24px;
+}
+.widget-buttons-grid > flowbox > flowboxchild > button label {
+  font-family: "Iosevka Nerd Font Mono";
+  font-size: 32px;
+  padding: 0;
+  margin: 0;
+}
+.widget-buttons-grid > flowbox > flowboxchild > button:hover {
+  background: @bg-hover;
+  color: #ffffff;
+}
+.widget-buttons-grid > flowbox > flowboxchild > button:checked {
+  background: @accent;
+  color: #15121c;
+}
+
+/* ---------- ESTADO VAZIO ---------- */
+.control-center .placeholder,
+.blank-window,
+.control-center-list-placeholder {
+  color: @fg-dim;
+  font-size: 15px;
+}
+
+/* ---------- PLAYER (refinado) ---------- */
+.widget-mpris {
+  background: @bg-card;
+  border-radius: 22px;
+  margin: 8px 16px;
+  padding: 10px 6px;
+}
+
+.widget-mpris-player,
+.widget-mpris-player > * {
+  background: transparent;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+}
+.widget-mpris-player { padding: 10px 14px; }
+
+.widget-mpris-album-art {
+  border-radius: 18px;
+  margin-right: 8px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+}
+
+.widget-mpris-title {
+  color: #ffffff;
+  font-size: 19px;
+  font-weight: bold;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.widget-mpris-subtitle {
+  color: @accent2;
+  font-size: 15px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.widget-mpris button {
+  color: @fg;
+  border-radius: 14px;
+  padding: 6px 10px;
+}
+.widget-mpris button:hover {
+  background: @bg-hover;
+  color: @accent2;
+}
+
+/* setas do carrossel e bolinhas */
+.widget-mpris > box > button { color: @fg-dim; }
+.widget-mpris > box > button:hover { color: @accent2; }

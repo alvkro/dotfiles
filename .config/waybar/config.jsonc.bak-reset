@@ -1,0 +1,271 @@
+[
+  {
+    "layer": "top",
+    "position": "top",
+    "height": 22,
+    "margin-top": 0,
+    "margin-left": 0,
+    "margin-right": 0,
+    "spacing": 0,
+    "modules-left": [
+      "hyprland/workspaces"
+    ],
+    "modules-center": [
+      "hyprland/window"
+    ],
+    "modules-right": [
+      "mpris",
+      "cpu",
+      "memory",
+      "network",
+      "battery",
+      "custom/notification",
+      "clock",
+      "custom/power"
+    ],
+    "hyprland/workspaces": {
+      "all-outputs": false,
+      "format": "{icon}",
+      "format-icons": {
+        "1": "1",
+        "2": "2",
+        "3": "3",
+        "4": "4",
+        "5": "5",
+        "6": "1",
+        "7": "2",
+        "8": "3",
+        "9": "4",
+        "10": "5"
+      },
+      "on-click": "activate",
+      "persistent-workspaces": {
+        "HDMI-A-1": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "ignore-workspaces": [
+        "^([6-9]|10)$"
+      ]
+    },
+    "hyprland/window": {
+      "format": "{title}",
+      "max-length": 60,
+      "separate-outputs": true
+    },
+    "mpris": {
+      "player": "spotify",
+      "format": "<span font_family='Iosevka Nerd Font Mono'>󰓇</span> {artist} - {title}",
+      "format-paused": "<span font_family='Iosevka Nerd Font Mono'>󰏤</span> {artist} - {title}",
+      "max-length": 38,
+      "on-click": "playerctl -p spotify play-pause",
+      "on-scroll-up": "playerctl -p spotify next",
+      "on-scroll-down": "playerctl -p spotify previous"
+    },
+    "cpu": {
+      "format": "<span font_family='Iosevka Nerd Font Mono'>󰻠</span> {usage}%",
+      "interval": 2
+    },
+    "memory": {
+      "format": "<span font_family='Iosevka Nerd Font Mono'>󰍛</span> {used:0.1f}G",
+      "interval": 5
+    },
+    "network": {
+      "format-wifi": "<span font_family='Iosevka Nerd Font Mono'>󰤨</span> {essid}",
+      "format-ethernet": "<span font_family='Iosevka Nerd Font Mono'>󰈀</span> cabo",
+      "format-disconnected": "<span font_family='Iosevka Nerd Font Mono'>󰤭</span> off",
+      "tooltip-format": "{essid}  {signalStrength}%\n{ipaddr}",
+      "on-click": "kitty nmtui"
+    },
+    "battery": {
+      "states": {
+        "warning": 30,
+        "critical": 15
+      },
+      "format": "<span font_family='Iosevka Nerd Font Mono'>{icon}</span> {capacity}%",
+      "format-charging": "<span font_family='Iosevka Nerd Font Mono'>󰂄</span> {capacity}%",
+      "format-plugged": "<span font_family='Iosevka Nerd Font Mono'>󰚥</span> {capacity}%",
+      "format-full": "<span font_family='Iosevka Nerd Font Mono'>󰁹</span> {capacity}%",
+      "format-icons": [
+        "󰁺",
+        "󰁻",
+        "󰁼",
+        "󰁽",
+        "󰁾",
+        "󰁿",
+        "󰂀",
+        "󰂁",
+        "󰂂",
+        "󰁹"
+      ],
+      "tooltip-format": "{timeTo}\n{power}W",
+      "interval": 30
+    },
+    "custom/notification": {
+      "tooltip": false,
+      "format": "{icon}",
+      "format-icons": {
+        "notification": "󱅫",
+        "none": "󰂜",
+        "dnd-notification": "󰂛",
+        "dnd-none": "󰪑",
+        "inhibited-notification": "󰂛",
+        "inhibited-none": "󰪑",
+        "dnd-inhibited-notification": "󰂛",
+        "dnd-inhibited-none": "󰪑"
+      },
+      "return-type": "json",
+      "exec-if": "which swaync-client",
+      "exec": "swaync-client -swb",
+      "on-click": "swaync-client -t -sw",
+      "on-click-right": "swaync-client -d -sw",
+      "escape": true
+    },
+    "clock": {
+      "format": "{:%a %d %b}  <span color='#d0c3e6'>{:%H:%M}</span>",
+      "tooltip-format": "<tt>{calendar}</tt>"
+    },
+    "custom/power": {
+      "format": "󰐥",
+      "tooltip": false,
+      "on-click": "~/.config/hypr/scripts/powermenu.sh"
+    },
+    "output": "HDMI-A-1"
+  },
+  {
+    "layer": "top",
+    "position": "top",
+    "height": 22,
+    "margin-top": 0,
+    "margin-left": 0,
+    "margin-right": 0,
+    "spacing": 0,
+    "modules-left": [
+      "hyprland/workspaces"
+    ],
+    "modules-center": [
+      "hyprland/window"
+    ],
+    "modules-right": [
+      "mpris",
+      "cpu",
+      "memory",
+      "network",
+      "battery",
+      "custom/notification",
+      "clock",
+      "custom/power"
+    ],
+    "hyprland/workspaces": {
+      "all-outputs": false,
+      "format": "{icon}",
+      "on-click": "activate",
+      "persistent-workspaces": {
+        "eDP-1": [
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      },
+      "ignore-workspaces": [
+        "^[1-5]$"
+      ],
+      "format-icons": {
+        "6": "1",
+        "7": "2",
+        "8": "3",
+        "9": "4",
+        "10": "5"
+      }
+    },
+    "hyprland/window": {
+      "format": "{title}",
+      "max-length": 60,
+      "separate-outputs": true
+    },
+    "mpris": {
+      "player": "spotify",
+      "format": "<span font_family='Iosevka Nerd Font Mono'>󰓇</span> {artist} - {title}",
+      "format-paused": "<span font_family='Iosevka Nerd Font Mono'>󰏤</span> {artist} - {title}",
+      "max-length": 38,
+      "on-click": "playerctl -p spotify play-pause",
+      "on-scroll-up": "playerctl -p spotify next",
+      "on-scroll-down": "playerctl -p spotify previous"
+    },
+    "cpu": {
+      "format": "<span font_family='Iosevka Nerd Font Mono'>󰻠</span> {usage}%",
+      "interval": 2
+    },
+    "memory": {
+      "format": "<span font_family='Iosevka Nerd Font Mono'>󰍛</span> {used:0.1f}G",
+      "interval": 5
+    },
+    "network": {
+      "format-wifi": "<span font_family='Iosevka Nerd Font Mono'>󰤨</span> {essid}",
+      "format-ethernet": "<span font_family='Iosevka Nerd Font Mono'>󰈀</span> cabo",
+      "format-disconnected": "<span font_family='Iosevka Nerd Font Mono'>󰤭</span> off",
+      "tooltip-format": "{essid}  {signalStrength}%\n{ipaddr}",
+      "on-click": "kitty nmtui"
+    },
+    "battery": {
+      "states": {
+        "warning": 30,
+        "critical": 15
+      },
+      "format": "<span font_family='Iosevka Nerd Font Mono'>{icon}</span> {capacity}%",
+      "format-charging": "<span font_family='Iosevka Nerd Font Mono'>󰂄</span> {capacity}%",
+      "format-plugged": "<span font_family='Iosevka Nerd Font Mono'>󰚥</span> {capacity}%",
+      "format-full": "<span font_family='Iosevka Nerd Font Mono'>󰁹</span> {capacity}%",
+      "format-icons": [
+        "󰁺",
+        "󰁻",
+        "󰁼",
+        "󰁽",
+        "󰁾",
+        "󰁿",
+        "󰂀",
+        "󰂁",
+        "󰂂",
+        "󰁹"
+      ],
+      "tooltip-format": "{timeTo}\n{power}W",
+      "interval": 30
+    },
+    "custom/notification": {
+      "tooltip": false,
+      "format": "{icon}",
+      "format-icons": {
+        "notification": "󱅫",
+        "none": "󰂜",
+        "dnd-notification": "󰂛",
+        "dnd-none": "󰪑",
+        "inhibited-notification": "󰂛",
+        "inhibited-none": "󰪑",
+        "dnd-inhibited-notification": "󰂛",
+        "dnd-inhibited-none": "󰪑"
+      },
+      "return-type": "json",
+      "exec-if": "which swaync-client",
+      "exec": "swaync-client -swb",
+      "on-click": "swaync-client -t -sw",
+      "on-click-right": "swaync-client -d -sw",
+      "escape": true
+    },
+    "clock": {
+      "format": "{:%a %d %b}  <span color='#d0c3e6'>{:%H:%M}</span>",
+      "tooltip-format": "<tt>{calendar}</tt>"
+    },
+    "custom/power": {
+      "format": "󰐥",
+      "tooltip": false,
+      "on-click": "~/.config/hypr/scripts/powermenu.sh"
+    },
+    "output": "eDP-1"
+  }
+]

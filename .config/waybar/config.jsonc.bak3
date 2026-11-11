@@ -1,0 +1,135 @@
+// ============================================================
+// Waybar Config — Tema Roxo Neutro / Terminal (compacto)
+// ============================================================
+{
+  "layer": "top",
+  "position": "top",
+  "height": 20,
+  "spacing": 0,
+
+  "modules-left": ["hyprland/workspaces", "custom/sep-l1", "clock", "custom/sep-l2", "clock#date"],
+  "modules-center": ["hyprland/window"],
+  "modules-right": [
+    "custom/caffeine",
+    "custom/weather",
+    "custom/media",
+    "custom/sep-r1",
+    "cpu",
+    "memory",
+    "network",
+    "custom/sep-r2",
+    "pulseaudio",
+    "battery",
+    "custom/sep-r3",
+    "custom/power"
+  ],
+
+  "custom/sep-l1": { "format": "::", "tooltip": false },
+  "custom/sep-l2": { "format": "::", "tooltip": false },
+  "custom/sep-r1": { "format": "::", "tooltip": false },
+  "custom/sep-r2": { "format": "::", "tooltip": false },
+  "custom/sep-r3": { "format": "::", "tooltip": false },
+
+  "custom/caffeine": {
+    "exec": "~/.config/waybar/scripts/caffeine.sh",
+    "return-type": "json",
+    "interval": "once",
+    "signal": 8,
+    "on-click": "~/.config/waybar/scripts/caffeine.sh toggle",
+    "tooltip": true
+  },
+
+  "hyprland/workspaces": {
+    "format": "{id}",
+    "on-click": "activate",
+    "persistent-workspaces": {
+      "*": 5
+    }
+  },
+
+  "hyprland/window": {
+    "format": "> {title}",
+    "max-length": 40,
+    "separate-outputs": true
+  },
+
+  "clock": {
+    "format": "[ {:%H:%M:%S} ]",
+    "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+    "interval": 1
+  },
+
+  "clock#date": {
+    "format": "[ {:%a %d/%m} ]",
+    "tooltip": false,
+    "interval": 60
+  },
+
+  "cpu": {
+    "format": "[ cpu {usage}% ]",
+    "interval": 2,
+    "tooltip": false
+  },
+
+  "memory": {
+    "format": "[ mem {used:0.1f}gb ]",
+    "interval": 2,
+    "tooltip-format": "RAM: {used:0.1f}GB / {total:0.1f}GB"
+  },
+
+  "network": {
+    "format-wifi": "[ net {signalStrength}% ]",
+    "format-ethernet": "[ eth {ipaddr} ]",
+    "format-disconnected": "[ sem rede ]",
+    "format-linked": "[ sem ip ]",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%)\n{ipaddr}/{cidr}",
+    "tooltip-format-ethernet": "{ifname}\n{ipaddr}/{cidr}",
+    "on-click": "nm-connection-editor",
+    "interval": 5
+  },
+
+  "pulseaudio": {
+    "format": "[ vol {volume}% ]",
+    "format-muted": "[ mudo ]",
+    "scroll-step": 5,
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-click-right": "pavucontrol",
+    "tooltip-format": "{desc}: {volume}%"
+  },
+
+  "battery": {
+    "format": "[ bat {capacity}% ]",
+    "format-charging": "[ chg {capacity}% ]",
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "tooltip-format": "{time} restante"
+  },
+
+  "custom/power": {
+    "format": "[ pwr ]",
+    "tooltip": "Menu de energia",
+    "on-click": "~/.config/waybar/scripts/power-menu.sh",
+    "on-click-right": "systemctl poweroff"
+  },
+
+  "custom/weather": {
+    "exec": "~/.config/waybar/scripts/weather.sh",
+    "return-type": "json",
+    "interval": 900,
+    "tooltip": true
+  },
+
+  "custom/media": {
+    "exec": "~/.config/waybar/scripts/music.sh",
+    "return-type": "json",
+    "interval": 2,
+    "max-length": 36,
+    "on-click": "playerctl play-pause",
+    "on-click-right": "playerctl stop",
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous",
+    "escape": true
+  }
+}

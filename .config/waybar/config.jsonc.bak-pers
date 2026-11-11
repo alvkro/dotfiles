@@ -1,0 +1,79 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 30,
+  "spacing": 0,
+
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": ["mpris", "cpu", "memory", "network", "custom/notification", "custom/power"],
+
+  "hyprland/workspaces": {
+    "format": "{id}",
+    "on-click": "activate",
+    "persistent-workspaces": {
+      "HDMI-A-1": [1, 2, 3, 4, 5],
+      "eDP-1": [6, 7, 8, 9, 10]
+    }
+  },
+
+  "clock": {
+    "format": "{:%a, %d %b   %H:%M}",
+    "tooltip-format": "<tt>{calendar}</tt>"
+  },
+
+  "mpris": {
+    "player": "spotify",
+    "format": "󰓇  {artist} - {title}",
+    "format-paused": "󰏤  {artist} - {title}",
+    "max-length": 45,
+    "on-click": "playerctl -p spotify play-pause",
+    "on-scroll-up": "playerctl -p spotify next",
+    "on-scroll-down": "playerctl -p spotify previous"
+  },
+
+  "cpu": {
+    "format": "󰻠  {usage}%",
+    "interval": 2
+  },
+
+  "memory": {
+    "format": "󰍛  {used:0.1f}G",
+    "interval": 5
+  },
+
+  "network": {
+    "format-wifi": "󰤨  {essid}",
+    "format-ethernet": "󰈀  cabo",
+    "format-disconnected": "󰤭  off",
+    "tooltip-format": "{essid}  {signalStrength}%\n{ipaddr}",
+    "on-click": "kitty nmtui"
+  },
+
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "󱅫",
+      "none": "󰂜",
+      "dnd-notification": "󰂛",
+      "dnd-none": "󰪑",
+      "inhibited-notification": "󰂛",
+      "inhibited-none": "󰪑",
+      "dnd-inhibited-notification": "󰂛",
+      "dnd-inhibited-none": "󰪑"
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+
+  "custom/power": {
+    "format": "󰐥",
+    "tooltip": false,
+    "on-click": "nwg-bar"
+  }
+}

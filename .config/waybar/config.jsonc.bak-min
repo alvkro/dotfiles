@@ -1,0 +1,82 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 24,
+  "margin-top": 0,
+  "margin-left": 0,
+  "margin-right": 0,
+  "spacing": 0,
+
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": ["mpris", "cpu", "memory", "network", "custom/notification", "custom/power"],
+
+  "hyprland/workspaces": {
+    "format": "{id}",
+    "on-click": "activate",
+    "persistent-workspaces": {
+      "HDMI-A-1": [1, 2, 3, 4, 5],
+      "eDP-1": [6, 7, 8, 9, 10]
+    }
+  },
+
+  "clock": {
+    "format": "<span color='#b9a3d6'>{:%a}</span> {:%d %b}  <b>{:%H:%M}</b>",
+    "tooltip-format": "<tt>{calendar}</tt>"
+  },
+
+  "mpris": {
+    "player": "spotify",
+    "format": "<span color='#a3d6a8'>spotify</span> {artist} - {title}",
+    "format-paused": "<span color='#6b6575'>spotify</span> {artist} - {title}",
+    "max-length": 40,
+    "on-click": "playerctl -p spotify play-pause",
+    "on-scroll-up": "playerctl -p spotify next",
+    "on-scroll-down": "playerctl -p spotify previous"
+  },
+
+  "cpu": {
+    "format": "<span color='#9fb7d6'>cpu</span> {usage}%",
+    "interval": 2
+  },
+
+  "memory": {
+    "format": "<span color='#a3d6c4'>ram</span> {used:0.1f}G",
+    "interval": 5
+  },
+
+  "network": {
+    "format-wifi": "<span color='#d6a3b9'>wifi</span> {essid}",
+    "format-ethernet": "<span color='#d6a3b9'>eth</span> cabo",
+    "format-disconnected": "<span color='#6b6575'>wifi</span> off",
+    "tooltip-format": "{essid}  {signalStrength}%\n{ipaddr}",
+    "on-click": "kitty nmtui"
+  },
+
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "󱅫",
+      "none": "󰂜",
+      "dnd-notification": "󰂛",
+      "dnd-none": "󰪑",
+      "inhibited-notification": "󰂛",
+      "inhibited-none": "󰪑",
+      "dnd-inhibited-notification": "󰂛",
+      "dnd-inhibited-none": "󰪑"
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+
+  "custom/power": {
+    "format": "󰐥",
+    "tooltip": false,
+    "on-click": "nwg-bar"
+  }
+}

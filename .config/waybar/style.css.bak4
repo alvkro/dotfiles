@@ -1,0 +1,110 @@
+* {
+  font-family: "Iosevka Nerd Font";
+  font-size: 13px;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+}
+
+window#waybar {
+  background: transparent;
+  color: #e0dce6;
+}
+
+#workspaces,
+#window,
+#clock,
+#mpris,
+#custom-weather,
+#cpu,
+#memory,
+#network,
+#wireplumber,
+#battery,
+#tray,
+#custom-power {
+  background: rgba(21, 18, 28, 0.88);
+  padding: 0 12px;
+  border-bottom: 2px solid #2d2b33;
+}
+
+/* workspaces */
+#workspaces {
+  padding: 0 4px;
+  border-bottom: 2px solid #887799;
+}
+
+#workspaces button {
+  padding: 0 8px;
+  color: #887799;
+  background: transparent;
+}
+
+#workspaces button.empty {
+  color: #4a4655;
+}
+
+#workspaces button:hover {
+  background: #2d2b33;
+  color: #e0dce6;
+}
+
+#workspaces button.active {
+  background: #887799;
+  color: #15121c;
+  font-weight: bold;
+}
+
+#workspaces button.urgent {
+  background: #c0616f;
+  color: #15121c;
+}
+
+/* janela e relógio */
+#window {
+  color: #a39aaf;
+}
+
+#clock {
+  color: #e0dce6;
+  border-bottom-color: #887799;
+  font-weight: bold;
+}
+
+/* acentos por módulo */
+#mpris          { color: #b9a3d6; border-bottom-color: #b9a3d6; }
+#custom-weather { color: #d6c4a3; border-bottom-color: #d6c4a3; }
+#cpu            { color: #9fb7d6; border-bottom-color: #9fb7d6; }
+#memory         { color: #a3d6c4; border-bottom-color: #a3d6c4; }
+#network        { color: #d6a3b9; border-bottom-color: #d6a3b9; }
+#wireplumber    { color: #b9a3d6; border-bottom-color: #b9a3d6; }
+#battery        { color: #a3d6a8; border-bottom-color: #a3d6a8; }
+
+#wireplumber.muted,
+#network.disconnected {
+  color: #6b6575;
+  border-bottom-color: #2d2b33;
+}
+
+#battery.warning:not(.charging)  { color: #d6c4a3; border-bottom-color: #d6c4a3; }
+#battery.critical:not(.charging) { color: #c0616f; border-bottom-color: #c0616f; }
+#battery.charging { color: #a3d6a8; }
+
+#custom-power {
+  color: #c0616f;
+  border-bottom-color: #c0616f;
+  padding: 0 14px;
+}
+
+#custom-power:hover,
+#clock:hover {
+  background: #2d2b33;
+}
+
+tooltip {
+  background: #15121c;
+  border: 1px solid #887799;
+}
+tooltip label {
+  color: #e0dce6;
+}

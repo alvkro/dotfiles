@@ -1,0 +1,96 @@
+* {
+  font-family: "Iosevka Nerd Font";
+  font-size: 12px;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  transition: all 120ms ease;
+}
+
+/* barra rente às bordas, fundo quase transparente */
+window#waybar {
+  background: rgba(22, 19, 28, 0.88);
+  color: #b9b2c4;
+}
+
+/* ---------- workspaces: só texto ---------- */
+#workspaces button {
+  padding: 0 8px;
+  background: transparent;
+  color: #4d4858;
+  border-bottom: 2px solid transparent;
+}
+#workspaces button:not(.empty) { color: #8a829a; }
+#workspaces button:hover {
+  background: transparent;
+  color: #d5cfe0;
+}
+#workspaces button.active {
+  color: #d0c3e6;
+  font-weight: bold;
+  border-bottom: 2px solid #a89bbf;
+}
+#workspaces button.urgent { color: #c98a96; }
+
+/* ---------- título da janela ---------- */
+#window {
+  color: #8a829a;
+  padding: 0 10px;
+}
+
+/* ---------- direita: texto corrido ---------- */
+#mpris,
+#cpu,
+#memory,
+#network,
+#battery,
+#custom-notification,
+#clock,
+#custom-power {
+  background: transparent;
+  color: #b9b2c4;
+  padding: 0 7px;
+}
+
+#mpris.paused,
+#network.disconnected { color: #5d586a; }
+
+#battery.charging,
+#battery.plugged { color: #a3c4a8; }
+#battery.warning:not(.charging)  { color: #d6c4a3; }
+#battery.critical:not(.charging) { color: #c98a96; }
+
+#custom-notification {
+  font-family: "Iosevka Nerd Font Mono";
+  font-size: 13px;
+  color: #a89bbf;
+}
+#custom-notification.notification { color: #d0c3e6; }
+#custom-notification.dnd-none,
+#custom-notification.dnd-notification { color: #5d586a; }
+
+#clock { padding: 0 9px; }
+
+#custom-power {
+  font-family: "Iosevka Nerd Font Mono";
+  font-size: 13px;
+  color: #a89bbf;
+  padding: 0 10px 0 6px;
+}
+
+#mpris:hover,
+#cpu:hover,
+#memory:hover,
+#network:hover,
+#custom-notification:hover,
+#clock:hover { color: #ece8f4; }
+#custom-power:hover { color: #c98a96; }
+
+tooltip {
+  background: #1a1523;
+  border: 1px solid rgba(168, 155, 191, 0.35);
+  border-radius: 0;
+}
+tooltip label { color: #ece8f4; }

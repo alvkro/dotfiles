@@ -1,0 +1,43 @@
+* {
+  font-family: "Iosevka Nerd Font";
+  font-size: 16px;
+}
+
+.notification-row { outline: none; }
+
+.notification {
+  background: rgba(21, 18, 28, 0.94);
+  border: 2px solid #887799;
+  border-radius: 16px;
+  margin: 8px 14px;
+  padding: 0;
+}
+.notification.critical { border-color: #c0616f; }
+
+.notification-content { padding: 16px 18px; background: transparent; }
+.summary { color: #b9a3d6; font-weight: bold; font-size: 17px; }
+.time    { color: #6b6575; }
+.body    { color: #cfc9d9; }
+
+.notification-action, .close-button {
+  background: #2d2b33;
+  color: #cfc9d9;
+  border: none;
+  border-radius: 10px;
+  padding: 6px 12px;
+}
+.close-button:hover, .notification-action:hover { background: #887799; color: #15121c; }
+
+.control-center {
+  background: rgba(21, 18, 28, 0.95);
+  border: 2px solid #887799;
+  border-radius: 18px;
+  margin: 10px;
+}
+.control-center .notification-row .notification { border-color: #2d2b33; }
+.widget-title { color: #b9a3d6; margin: 14px; font-size: 18px; }
+.widget-title > button { background: #2d2b33; color: #cfc9d9; border: none; border-radius: 10px; padding: 6px 12px; }
+.widget-title > button:hover { background: #887799; color: #15121c; }
+.widget-dnd { color: #cfc9d9; margin: 14px; }
+.widget-dnd > switch { background: #2d2b33; border: none; border-radius: 12px; }
+.widget-dnd > switch:checked { background: #887799; }

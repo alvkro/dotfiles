@@ -1,0 +1,75 @@
+configuration {
+    modi:        "drun,run,window";
+    show-icons:  true;
+    icon-theme:  "Papirus-Dark";
+    font: "Iosevka Nerd Font 12";
+}
+
+@theme "/dev/null"
+
+* {
+    background-color: #1a1a1acc;
+    text-color:       #d4d4d4;
+    border-color:     #cc6666;
+}
+
+window {
+    background-color: #1a1a1acc;
+    border:           1px solid;
+    border-radius:    12px;
+    width:            35%;
+    padding:          12px;
+}
+
+inputbar {
+    background-color: #2a2a2a88;
+    border-radius:    8px;
+    padding:          10px 12px;
+    margin:           0 0 10px 0;
+    children:         [prompt, entry];
+}
+
+prompt {
+    background-color: transparent;
+    text-color:       #cc6666;
+    padding:          0 8px 0 0;
+}
+
+entry {
+    background-color: transparent;
+    text-color:       #d4d4d4;
+    placeholder:      "Buscar...";
+    placeholder-color: #666666;
+}
+
+listview {
+    background-color: transparent;
+    lines:            8;
+    scrollbar:        false;
+    spacing:          4px;
+}
+
+element {
+    background-color: transparent;
+    text-color:       #d4d4d4;
+    border-radius:    8px;
+    padding:          8px 10px;
+    spacing:          10px;
+    children:         [element-icon, element-text];
+}
+
+element selected {
+    background-color: #2a1a1acc;
+    text-color:       #cc6666;
+}
+
+element-text {
+    background-color: transparent;
+    text-color:       inherit;
+    vertical-align:   0.5;
+}
+
+element-icon {
+    background-color: transparent;
+    size:             1.5em;
+}

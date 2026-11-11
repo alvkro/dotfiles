@@ -1,0 +1,46 @@
+* {
+    bg:      #181421f2;
+    card:    #342c46eb;
+    fg:      #ece8f4;
+    accent:  #9d8ab5;
+    accent2: #cdb8ee;
+
+    background-color: transparent;
+    text-color: @fg;
+    font: "Iosevka Nerd Font 13";
+}
+
+window {
+    location: center;
+    anchor: center;
+    width: 680px;
+    background-color: @bg;
+    border: 2px;
+    border-color: @accent;
+    border-radius: 24px;
+}
+
+mainbox { padding: 22px; children: [listview]; }
+
+listview {
+    columns: 4;
+    lines: 1;
+    spacing: 14px;
+    fixed-columns: true;
+    scrollbar: false;
+}
+
+element {
+    padding: 14px 8px;
+    background-color: @card;
+    border-radius: 18px;
+}
+element normal.normal, element alternate.normal { background-color: @card; }
+element selected.normal { background-color: @accent; text-color: #15121c; }
+
+element-text {
+    markup: true;
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+    text-color: inherit;
+}

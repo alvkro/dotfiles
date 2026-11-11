@@ -1,0 +1,221 @@
+/* ============================================================
+   Waybar Style — Tema Roxo Neutro / Terminal (compacto)
+   Colchetes, separadores "::" e paleta roxo/neutro suave
+   ============================================================ */
+
+* {
+  font-family: "Iosevka Nerd Font";
+  font-size: 12px;
+  min-height: 0;
+}
+
+/* Paleta roxo/neutro */
+@define-color base     rgba(15, 13, 18, 0.6);
+@define-color surface  #1e1a22;
+@define-color text     #e4dee8;
+@define-color subtle   #8b8096;
+@define-color muted    #564f5e;
+@define-color accent   #b39ddb;   /* roxo suave — acento principal */
+@define-color accent2  #d8cbe8;   /* lilás claro — secundário */
+@define-color warning  #d9a66c;
+@define-color critical #c77b91;
+
+window#waybar {
+  background: @base;
+  color: @text;
+}
+
+/* Centralizar módulos */
+.modules-left,
+.modules-center,
+.modules-right {
+  padding: 0;
+  margin: 0;
+}
+
+.modules-right {
+  padding-right: 10px;
+}
+
+/* Sem pílulas, sem fundo por módulo — flat, compacto */
+#workspaces,
+#window,
+#clock,
+#clock.date,
+#cpu,
+#memory,
+#network,
+#pulseaudio,
+#battery,
+#custom-caffeine,
+#custom-weather,
+#custom-media,
+#custom-power,
+#custom-sep-l1,
+#custom-sep-l2,
+#custom-sep-r1,
+#custom-sep-r2,
+#custom-sep-r3 {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0 8px;
+  margin: 0;
+  color: @text;
+}
+
+/* ---------------- Separadores ASCII ---------------- */
+#custom-sep-l1,
+#custom-sep-l2,
+#custom-sep-r1,
+#custom-sep-r2,
+#custom-sep-r3 {
+  color: @muted;
+  padding: 0 4px;
+  font-weight: 400;
+}
+
+/* ---------------- Workspaces ---------------- */
+#workspaces {
+  padding: 0 10px 0 12px;
+}
+
+#workspaces button {
+  color: @subtle;
+  background: transparent;
+  padding: 0 4px;
+  border: none;
+  border-radius: 0;
+  min-width: 0;
+  font-weight: 400;
+}
+
+#workspaces button.active {
+  color: @accent;
+  font-weight: 700;
+}
+
+#workspaces button:hover {
+  color: @accent2;
+  background: transparent;
+  box-shadow: none;
+}
+
+/* ---------------- Título da janela (centro) ---------------- */
+#window {
+  color: @accent2;
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* ---------------- Relógio e data ---------------- */
+#clock {
+  color: @text;
+}
+
+#clock.date {
+  color: @accent2;
+}
+
+/* ---------------- Café ---------------- */
+#custom-caffeine {
+  color: @muted;
+  font-size: 14px;
+}
+
+#custom-caffeine.active {
+  color: @accent;
+  text-shadow: 0 0 8px rgba(179, 157, 219, 0.5);
+}
+
+#custom-caffeine.inactive {
+  color: @muted;
+}
+
+/* ---------------- Clima ---------------- */
+#custom-weather {
+  color: @accent2;
+}
+
+/* ---------------- Música ---------------- */
+#custom-media {
+  color: @text;
+}
+
+#custom-media.paused,
+#custom-media.stopped,
+#custom-media.none {
+  color: @muted;
+}
+
+/* ---------------- CPU / RAM ---------------- */
+#cpu,
+#memory {
+  color: @text;
+}
+
+/* ---------------- Rede ---------------- */
+#network {
+  color: @text;
+}
+
+#network.disconnected {
+  color: @critical;
+}
+
+/* ---------------- Volume ---------------- */
+#pulseaudio {
+  color: @text;
+}
+
+#pulseaudio.muted {
+  color: @muted;
+}
+
+/* ---------------- Bateria ---------------- */
+#battery {
+  color: @text;
+}
+
+#battery.charging {
+  color: @accent;
+}
+
+#battery.warning:not(.charging) {
+  color: @warning;
+}
+
+#battery.critical:not(.charging) {
+  color: @critical;
+  animation: blink-purple 1.2s linear infinite;
+}
+
+@keyframes blink-purple {
+  50% {
+    opacity: 0.35;
+  }
+}
+
+/* ---------------- Botão de Energia ---------------- */
+#custom-power {
+  color: @accent;
+  padding-right: 15px;
+  margin-left: 5px;
+}
+
+#custom-power:hover {
+  color: @accent2;
+}
+
+/* Tooltips */
+tooltip {
+  background: @surface;
+  border: 1px solid @accent;
+  border-radius: 5px;
+}
+
+tooltip label {
+  color: @text;
+  font-size: 12px;
+}

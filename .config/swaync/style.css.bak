@@ -1,0 +1,124 @@
+/* ===== Preto com Vermelho Suave ===== */
+
+/* Janela de notificações */
+.notification-row {
+  background: transparent;
+  margin: 6px 8px;
+}
+
+.notification {
+  background: rgba(26, 26, 26, 0.95);
+  border: 1px solid #cc6666;
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.notification-content {
+  background: transparent;
+  color: #d4d4d4;
+}
+
+/* Título da notificação */
+.notification-title {
+  color: #cc6666;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* Corpo da notificação */
+.notification-body {
+  color: #d4d4d4;
+}
+
+/* Ícone */
+.notification-icon {
+  background: transparent;
+  border-radius: 8px;
+}
+
+/* Botões de ação */
+.notification-action {
+  background: #2a1a1a;
+  color: #d4d4d4;
+  border: 1px solid #3a2a2a;
+  border-radius: 6px;
+  padding: 4px 8px;
+}
+
+.notification-action:hover {
+  background: #3a2a2a;
+  color: #cc6666;
+}
+
+/* Center control */
+.control-center {
+  background: rgba(26, 26, 26, 0.95);
+  border: 1px solid #cc6666;
+  border-radius: 12px;
+  color: #d4d4d4;
+}
+
+.control-center .notification-title {
+  color: #cc6666;
+}
+
+/* Widgets */
+.widget-title {
+  color: #cc6666;
+  font-weight: bold;
+}
+
+.widget-label {
+  color: #d4d4d4;
+}
+
+/* Botões */
+.widget-button {
+  background: #2a2a2a;
+  color: #d4d4d4;
+  border-radius: 6px;
+  padding: 4px 8px;
+}
+
+.widget-button:hover {
+  background: #3a2a2a;
+  color: #cc6666;
+}
+
+/* Clear all button */
+.clear-all-button {
+  background: #2a1a1a;
+  color: #cc6666;
+  border-radius: 6px;
+  padding: 4px 8px;
+}
+
+.clear-all-button:hover {
+  background: #3a2a2a;
+  color: #ffffff;
+}
+
+/* Do not disturb */
+.dnd-button {
+  background: #2a2a2a;
+  color: #d4d4d4;
+}
+
+.dnd-button.active {
+  background: #2a1a1a;
+  color: #cc6666;
+}
+
+/* Scrollbar */
+.control-center scrollbar {
+  background: transparent;
+}
+
+.control-center scrollbar slider {
+  background: #3a3a3a;
+  border-radius: 4px;
+}
+
+.control-center scrollbar slider:hover {
+  background: #cc6666;
+}

@@ -1,0 +1,74 @@
+# ============================================================
+# Kitty — Animação de cursor + Tema Neutro
+# Requer kitty >= 0.37 (recurso de cursor_trail)
+#
+# Como usar: salve este arquivo em ~/.config/kitty/ e adicione
+# esta linha no final do seu kitty.conf:
+#   include kitty-neutral-theme.conf
+# ============================================================
+
+# ---------------- Animação do cursor ao digitar ----------------
+cursor_shape beam
+cursor_beam_thickness 1.5
+cursor_blink_interval 0.5
+cursor_stop_blinking_after 15.0
+
+# "Rastro" animado que segue o cursor ao mover/digitar
+cursor_trail 20
+cursor_trail_decay 0.1 0.4
+cursor_trail_start_threshold 2
+
+# ---------------- Tema neutro (tons de cinza) ----------------
+background            #1a1a1a
+foreground             #d8d8d8
+selection_background   #3a3a3a
+selection_foreground   #ffffff
+
+cursor                 #d8d8d8
+cursor_text_color      #1a1a1a
+
+# preto / cinza escuro
+color0  #1a1a1a
+color8  #4a4a4a
+
+# vermelho (dessaturado)
+color1  #b06d6d
+color9  #c98787
+
+# verde (dessaturado)
+color2  #7d947d
+color10 #97ab97
+
+# amarelo (dessaturado)
+color3  #b3a374
+color11 #c7b78d
+
+# azul (dessaturado)
+color4  #7a8fa6
+color12 #94a8bd
+
+# magenta (dessaturado)
+color5  #9c8aa5
+color13 #b3a1bb
+
+# ciano (dessaturado)
+color6  #7fa1a1
+color14 #9bbcbc
+
+# branco / cinza claro
+color7  #cfcfcf
+color15 #ededed
+
+# ---------------- Copiar / Colar ----------------
+# Ctrl+C copia se tiver texto selecionado; se não tiver seleção,
+# funciona normal (interrompe o processo, como sempre)
+map ctrl+c copy_and_clear_or_interrupt
+map ctrl+v paste_from_clipboard
+
+# ---------------- Abas ----------------
+tab_bar_background       #141414
+active_tab_background    #2a2a2a
+active_tab_foreground    #d8d8d8
+inactive_tab_background  #1a1a1a
+inactive_tab_foreground  #6a6a6a
+font_family Iosevka Nerd Font

@@ -1,0 +1,55 @@
+general {
+    hide_cursor = true
+}
+
+background {
+    monitor =
+    path = screenshot
+    color = rgba(21, 18, 28, 1.0)
+    blur_passes = 3
+    blur_size = 6
+    brightness = 0.6
+}
+
+label {
+    monitor =
+    text = $TIME
+    color = rgb(207, 201, 217)
+    font_size = 90
+    font_family = Iosevka Nerd Font
+    position = 0, 160
+    halign = center
+    valign = center
+}
+
+label {
+    monitor =
+    text = cmd[update:60000] date +"%A, %d de %B"
+    color = rgb(136, 119, 153)
+    font_size = 18
+    font_family = Iosevka Nerd Font
+    position = 0, 80
+    halign = center
+    valign = center
+}
+
+input-field {
+    monitor =
+    size = 300, 48
+    outline_thickness = 2
+    dots_size = 0.25
+    dots_spacing = 0.3
+    dots_center = true
+    rounding = 0
+    outer_color = rgb(136, 119, 153)
+    inner_color = rgba(21, 18, 28, 0.85)
+    font_color = rgb(207, 201, 217)
+    check_color = rgb(185, 163, 214)
+    fail_color = rgb(192, 97, 111)
+    fade_on_empty = false
+    placeholder_text = <span foreground="##6b6575">senha</span>
+    fail_text = <span foreground="##c0616f">$FAIL</span>
+    position = 0, -20
+    halign = center
+    valign = center
+}

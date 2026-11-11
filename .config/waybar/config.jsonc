@@ -1,78 +1,249 @@
-{
+[
+  {
+    "output": "HDMI-A-1",
     "layer": "top",
     "position": "top",
-    "height": 36,
+    "height": 22,
+    "margin-top": 0,
+    "margin-left": 0,
+    "margin-right": 0,
     "spacing": 0,
-    "margin-top": 8,
-    "margin-left": 120,
-    "margin-right": 120,
-
-    "modules-left": ["hyprland/workspaces", "hyprland/window"],
-    "modules-center": ["clock"],
-    "modules-right": ["tray", "cpu", "memory", "pulseaudio", "network", "battery", "custom/power"],
-
+    "modules-left": [
+      "hyprland/workspaces"
+    ],
+    "modules-center": [
+      "hyprland/window"
+    ],
+    "modules-right": [
+      "mpris",
+      "cpu",
+      "memory",
+      "network",
+      "battery",
+      "custom/notification",
+      "clock",
+      "custom/power"
+    ],
     "hyprland/workspaces": {
-        "format": "{id}",
-        "on-click": "activate",
-        "all-outputs": true,
-        "persistent-workspaces": {
-            "1": [], "2": [], "3": [], "4": [], "5": []
-        }
+      "all-outputs": false,
+      "format": "{icon}",
+      "format-icons": {
+        "1": "1",
+        "2": "2",
+        "3": "3",
+        "4": "4",
+        "5": "5"
+      },
+      "on-click": "activate",
+      "persistent-workspaces": {
+        "HDMI-A-1": [1, 2, 3, 4, 5]
+      },
+      "ignore-workspaces": [
+        "^([6-9]|10)$"
+      ]
     },
-
     "hyprland/window": {
-        "format": "{title}",
-        "max-length": 45,
-        "separate-outputs": true
+      "format": "{title}",
+      "max-length": 60,
+      "separate-outputs": true
     },
-
-    "clock": {
-        "interval": 1,
-        "format": "{:%H:%M:%S   %d/%m/%Y}",
-        "tooltip-format": "{:%A, %d de %B}"
+    "mpris": {
+      "player": "spotify",
+      "format": "<span font_family='Iosevka Nerd Font Mono'>󰓇</span> {artist} - {title}",
+      "format-paused": "<span font_family='Iosevka Nerd Font Mono'>󰏤</span> {artist} - {title}",
+      "max-length": 38,
+      "on-click": "playerctl -p spotify play-pause",
+      "on-scroll-up": "playerctl -p spotify next",
+      "on-scroll-down": "playerctl -p spotify previous"
     },
-
     "cpu": {
-        "format": "\uf2db {usage}%",
-        "interval": 2,
-        "tooltip": true
+      "format": "<span font_family='Iosevka Nerd Font Mono'>󰻠</span> {usage}%",
+      "interval": 2
     },
-
     "memory": {
-        "format": "\uf1c0 {percentage}%",
-        "interval": 2,
-        "tooltip-format": "Usado: {used:0.1f}GB / {total:0.1f}GB"
+      "format": "<span font_family='Iosevka Nerd Font Mono'>󰍛</span> {used:0.1f}G",
+      "interval": 5
     },
-
     "network": {
-        "format-wifi": "\uf1eb {signalStrength}%",
-        "format-ethernet": "\uf1eb",
-        "format-disconnected": "\uf1eb --",
-        "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
-        "on-click": "nm-connection-editor"
+      "format-wifi": "<span font_family='Iosevka Nerd Font Mono'>󰤨</span> {essid}",
+      "format-ethernet": "<span font_family='Iosevka Nerd Font Mono'>󰈀</span> cabo",
+      "format-disconnected": "<span font_family='Iosevka Nerd Font Mono'>󰤭</span> off",
+      "tooltip-format": "{essid}  {signalStrength}%\n{ipaddr}",
+      "on-click": "kitty nmtui"
     },
-
-    "pulseaudio": {
-        "format": "\uf028 {volume}%",
-        "format-muted": "\uf026 --",
-        "on-click": "pavucontrol",
-        "scroll-step": 5
-    },
-
     "battery": {
-        "states": { "warning": 30, "critical": 15 },
-        "format": "\uf240 {capacity}%",
-        "format-charging": "\uf0e7 {capacity}%"
+      "states": {
+        "warning": 30,
+        "critical": 15
+      },
+      "format": "<span font_family='Iosevka Nerd Font Mono'>{icon}</span> {capacity}%",
+      "format-charging": "<span font_family='Iosevka Nerd Font Mono'>󰂄</span> {capacity}%",
+      "format-plugged": "<span font_family='Iosevka Nerd Font Mono'>󰚥</span> {capacity}%",
+      "format-full": "<span font_family='Iosevka Nerd Font Mono'>󰁹</span> {capacity}%",
+      "format-icons": [
+        "󰁺",
+        "󰁻",
+        "󰁼",
+        "󰁽",
+        "󰁾",
+        "󰁿",
+        "󰂀",
+        "󰂁",
+        "󰂂",
+        "󰁹"
+      ],
+      "tooltip-format": "{timeTo}\n{power}W",
+      "interval": 30
     },
-
-    "tray": {
-        "icon-size": 16,
-        "spacing": 8
+    "custom/notification": {
+      "tooltip": false,
+      "format": "{icon}",
+      "format-icons": {
+        "notification": "󱅫",
+        "none": "󰂜",
+        "dnd-notification": "󰂛",
+        "dnd-none": "󰪑",
+        "inhibited-notification": "󰂛",
+        "inhibited-none": "󰪑",
+        "dnd-inhibited-notification": "󰂛",
+        "dnd-inhibited-none": "󰪑"
+      },
+      "return-type": "json",
+      "exec-if": "which swaync-client",
+      "exec": "swaync-client -swb",
+      "on-click": "swaync-client -t -sw",
+      "on-click-right": "swaync-client -d -sw",
+      "escape": true
     },
-
+    "clock": {
+      "format": "󰥔 {:%H:%M}",
+      "format-alt": "󰃭 {:%a %d %b}",
+      "tooltip-format": "<tt><small>{calendar}</small></tt>"
+    },
     "custom/power": {
-        "format": "\uf011",
-        "tooltip": false,
-        "on-click": "nwg-bar"
+      "format": "󰐥",
+      "tooltip": false,
+      "on-click": "~/.config/hypr/scripts/powermenu.sh"
     }
-}
+  },
+  {
+    "output": "eDP-1",
+    "layer": "top",
+    "position": "top",
+    "height": 22,
+    "margin-top": 0,
+    "margin-left": 0,
+    "margin-right": 0,
+    "spacing": 0,
+    "modules-left": [
+      "hyprland/workspaces"
+    ],
+    "modules-center": [
+      "hyprland/window"
+    ],
+    "modules-right": [
+      "mpris",
+      "cpu",
+      "memory",
+      "network",
+      "battery",
+      "custom/notification",
+      "clock",
+      "custom/power"
+    ],
+    "hyprland/workspaces": {
+      "all-outputs": false,
+      "format": "{id}",
+      "on-click": "activate",
+      "persistent-workspaces": {
+        "eDP-1": [6, 7, 8, 9, 10]
+      },
+      "ignore-workspaces": [
+        "^[1-5]$"
+      ]
+    },
+    "hyprland/window": {
+      "format": "{title}",
+      "max-length": 60,
+      "separate-outputs": true
+    },
+    "mpris": {
+      "player": "spotify",
+      "format": "<span font_family='Iosevka Nerd Font Mono'>󰓇</span> {artist} - {title}",
+      "format-paused": "<span font_family='Iosevka Nerd Font Mono'>󰏤</span> {artist} - {title}",
+      "max-length": 38,
+      "on-click": "playerctl -p spotify play-pause",
+      "on-scroll-up": "playerctl -p spotify next",
+      "on-scroll-down": "playerctl -p spotify previous"
+    },
+    "cpu": {
+      "format": "<span font_family='Iosevka Nerd Font Mono'>󰻠</span> {usage}%",
+      "interval": 2
+    },
+    "memory": {
+      "format": "<span font_family='Iosevka Nerd Font Mono'>󰍛</span> {used:0.1f}G",
+      "interval": 5
+    },
+    "network": {
+      "format-wifi": "<span font_family='Iosevka Nerd Font Mono'>󰤨</span> {essid}",
+      "format-ethernet": "<span font_family='Iosevka Nerd Font Mono'>󰈀</span> cabo",
+      "format-disconnected": "<span font_family='Iosevka Nerd Font Mono'>󰤭</span> off",
+      "tooltip-format": "{essid}  {signalStrength}%\n{ipaddr}",
+      "on-click": "kitty nmtui"
+    },
+    "battery": {
+      "states": {
+        "warning": 30,
+        "critical": 15
+      },
+      "format": "<span font_family='Iosevka Nerd Font Mono'>{icon}</span> {capacity}%",
+      "format-charging": "<span font_family='Iosevka Nerd Font Mono'>󰂄</span> {capacity}%",
+      "format-plugged": "<span font_family='Iosevka Nerd Font Mono'>󰚥</span> {capacity}%",
+      "format-full": "<span font_family='Iosevka Nerd Font Mono'>󰁹</span> {capacity}%",
+      "format-icons": [
+        "󰁺",
+        "󰁻",
+        "󰁼",
+        "󰁽",
+        "󰁾",
+        "󰁿",
+        "󰂀",
+        "󰂁",
+        "󰂂",
+        "󰁹"
+      ],
+      "tooltip-format": "{timeTo}\n{power}W",
+      "interval": 30
+    },
+    "custom/notification": {
+      "tooltip": false,
+      "format": "{icon}",
+      "format-icons": {
+        "notification": "󱅫",
+        "none": "󰂜",
+        "dnd-notification": "󰂛",
+        "dnd-none": "󰪑",
+        "inhibited-notification": "󰂛",
+        "inhibited-none": "󰪑",
+        "dnd-inhibited-notification": "󰂛",
+        "dnd-inhibited-none": "󰪑"
+      },
+      "return-type": "json",
+      "exec-if": "which swaync-client",
+      "exec": "swaync-client -swb",
+      "on-click": "swaync-client -t -sw",
+      "on-click-right": "swaync-client -d -sw",
+      "escape": true
+    },
+    "clock": {
+      "format": "󰥔 {:%H:%M}",
+      "format-alt": "󰃭 {:%a %d %b}",
+      "tooltip-format": "<tt><small>{calendar}</small></tt>"
+    },
+    "custom/power": {
+      "format": "󰐥",
+      "tooltip": false,
+      "on-click": "~/.config/hypr/scripts/powermenu.sh"
+    }
+  }
+]

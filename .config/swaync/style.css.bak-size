@@ -1,0 +1,40 @@
+* {
+  font-family: "Iosevka Nerd Font";
+  font-size: 13px;
+  border-radius: 0;
+}
+
+.notification-row { outline: none; }
+
+.notification {
+  background: rgba(21, 18, 28, 0.94);
+  border: 2px solid #887799;
+  margin: 6px 12px;
+  padding: 0;
+}
+.notification.critical { border-color: #c0616f; }
+
+.notification-content { padding: 10px 12px; background: transparent; }
+.summary { color: #b9a3d6; font-weight: bold; }
+.time    { color: #6b6575; }
+.body    { color: #cfc9d9; }
+
+.notification-action, .close-button {
+  background: #2d2b33;
+  color: #cfc9d9;
+  border: none;
+}
+.close-button:hover, .notification-action:hover { background: #887799; color: #15121c; }
+
+.control-center {
+  background: rgba(21, 18, 28, 0.95);
+  border: 2px solid #887799;
+  margin: 8px;
+}
+.control-center .notification-row .notification { border-color: #2d2b33; }
+.widget-title { color: #b9a3d6; margin: 10px; }
+.widget-title > button { background: #2d2b33; color: #cfc9d9; border: none; }
+.widget-title > button:hover { background: #887799; color: #15121c; }
+.widget-dnd { color: #cfc9d9; margin: 10px; }
+.widget-dnd > switch { background: #2d2b33; border: none; }
+.widget-dnd > switch:checked { background: #887799; }

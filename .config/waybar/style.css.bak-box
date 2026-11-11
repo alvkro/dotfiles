@@ -1,0 +1,95 @@
+* {
+  font-family: "Iosevka Nerd Font";
+  font-size: 13px;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  transition: all 150ms ease;
+}
+
+window#waybar {
+  background: rgba(22, 19, 28, 0.60);
+  color: #b9b2c4;
+  border-bottom: 1px solid rgba(168, 155, 191, 0.15);
+}
+
+/* ---------- workspaces (pontos) ---------- */
+#workspaces { margin-left: 8px; }
+
+#workspaces button {
+  font-family: "Iosevka Nerd Font";
+  font-size: 13px;
+  padding: 0 8px;
+  background: transparent;
+  color: #4d4858;
+}
+#workspaces button.empty  { color: #3d3947; }
+#workspaces button:not(.empty) { color: #8a829a; }
+#workspaces button:hover  { color: #d5cfe0; background: transparent; }
+#workspaces button.active { color: #d0c3e6; font-weight: bold; }
+#workspaces button.urgent { color: #c98a96; }
+
+/* ---------- centro ---------- */
+#clock {
+  color: #b9b2c4;
+  padding: 0 12px;
+}
+
+/* ---------- direita: tudo na mesma cor ---------- */
+#mpris,
+#cpu,
+#memory,
+#network,
+#custom-notification,
+#custom-power {
+  background: transparent;
+  color: #a89bbf;
+  padding: 0 11px;
+}
+
+#mpris          { color: #b9b2c4; }
+#mpris.paused   { color: #5d586a; }
+#network.disconnected { color: #5d586a; }
+
+#custom-notification {
+  font-family: "Iosevka Nerd Font Mono";
+  font-size: 14px;
+}
+#custom-notification.notification { color: #d0c3e6; }
+#custom-notification.dnd-none,
+#custom-notification.dnd-notification { color: #5d586a; }
+
+#custom-power {
+  font-family: "Iosevka Nerd Font Mono";
+  font-size: 14px;
+  padding-right: 14px;
+}
+
+#mpris:hover,
+#cpu:hover,
+#memory:hover,
+#network:hover,
+#custom-notification:hover,
+#custom-power:hover { color: #e6e1ef; }
+#custom-power:hover { color: #c98a96; }
+
+tooltip {
+  background: #16131c;
+  border: 1px solid rgba(168, 155, 191, 0.3);
+  border-radius: 0;
+}
+tooltip label { color: #d5cfe0; }
+
+/* bateria */
+#battery {
+  background: transparent;
+  color: #a89bbf;
+  padding: 0 11px;
+}
+#battery:hover { color: #e6e1ef; }
+#battery.charging,
+#battery.plugged  { color: #a3c4a8; }
+#battery.warning:not(.charging)  { color: #d6c4a3; }
+#battery.critical:not(.charging) { color: #c98a96; }
